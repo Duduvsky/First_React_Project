@@ -11,12 +11,12 @@ export const Home = () => {
   const [posts, setPosts] = useState([]);
   const [allPosts, setAllPosts] = useState([]);
   const [page, setPage] = useState(0);
-  const [postsPerPage] = useState(6);
+  const [postsPerPage] = useState(2);
   const [searchValue, setSearchValue] = useState('');
-  
+
   const noMorePost = page + postsPerPage >= allPosts.length;
 
-  const filteredPosts = !!searchValue ? 
+  const filteredPosts = !!searchValue ?
   allPosts.filter(post => {
     return post.title.toLowerCase().includes(searchValue.toLowerCase());
   })
@@ -55,7 +55,7 @@ export const Home = () => {
         )}
         <TextInput searchValue={searchValue} handleChange={handleChange}/>
       </div>
-    
+
       {filteredPosts.length > 0 && (
         <Posts posts={filteredPosts}/>
       )}
@@ -64,9 +64,9 @@ export const Home = () => {
         <p>Não existem posts =( </p>
       )}
 
-      <div className="button-container"> 
+      <div className="button-container">
         {!searchValue && (
-          <Button 
+          <Button
           text="Load more posts"
           onClick={loadMorePosts}
           disabled={noMorePost}
@@ -95,7 +95,7 @@ export const Home = () => {
 //     const { page, postsPerPage } = this.state;
 
 //     const postsAndPhotos = await loadPosts();
-//     this.setState({ 
+//     this.setState({
 //       posts: postsAndPhotos.slice(page, postsPerPage),
 //       allPosts: postsAndPhotos
 //     });
@@ -125,12 +125,12 @@ export const Home = () => {
 //     const { posts, page, postsPerPage, allPosts, searchValue } = this.state;
 //     const noMorePost = page + postsPerPage >= allPosts.length;
 
-//     const filteredPosts = !!searchValue ? 
+//     const filteredPosts = !!searchValue ?
 //       allPosts.filter(post => {
 //         return post.title.toLowerCase().includes(searchValue.toLowerCase());
 //       })
 //       : posts;
-    
+
 //     return (
 //       <section className='container'>
 //         <div className='search-container'>
@@ -139,7 +139,7 @@ export const Home = () => {
 //           )}
 //           <TextInput searchValue={searchValue} handleChange={this.handleChange}/>
 //         </div>
-      
+
 //         {filteredPosts.length > 0 && (
 //           <Posts posts={filteredPosts}/>
 //         )}
@@ -148,9 +148,9 @@ export const Home = () => {
 //           <p>Não existem posts =( </p>
 //         )}
 
-//         <div className="button-container"> 
+//         <div className="button-container">
 //           {!searchValue && (
-//             <Button 
+//             <Button
 //             text="Load more posts"
 //             onClick={this.loadMorePosts}
 //             disabled={noMorePost}
